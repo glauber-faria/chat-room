@@ -1,0 +1,33 @@
+.homecontainer {
+  background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .6), rgba(0, 0, 0, .8)), url('../../assets/fundo.jpg');
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+  background-position: top, center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.homebox {
+  background-color: whitesmoke;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 5vw 10vh 5vw;
+  border-radius: 20px;
+  -webkit-box-shadow: 7px 10px 17px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 7px 10px 17px 5px rgba(0,0,0,0.75);
+  box-shadow: 7px 10px 17px 5px rgba(0,0,0,0.75);
+}
+
+.homeh1 {
+  font-size: 50px;
+  color: black;
+  font-family: 'Roboto';
+  font-weight: 100;
+  flex-wrap: wrap;
+  margin-bottom: 5vh;
+}

@@ -1,6 +1,7 @@
 import './App.css';
-import Home from './pages/home';
 import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
+import Home from './pages/home/home';
+import Chat from './pages/chat/chat';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           element={<Navigate to="/home" />}
         />
         <Route path="/home" element={<Home />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </BrowserRouter>
 

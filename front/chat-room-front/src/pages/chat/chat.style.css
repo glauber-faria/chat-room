@@ -1,0 +1,48 @@
+.chatcontainer {
+  background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .6), rgba(0, 0, 0, .8)), url('../../assets/fundo.jpg');
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+  background-position: top, center;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 5vh;
+  height: 95vh;
+}
+
+.chatbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0vh 1vw 2vh 1vw;
+  border-radius: 20px;
+  -webkit-box-shadow: 7px 10px 17px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 7px 10px 17px 5px rgba(0,0,0,0.75);
+  box-shadow: 7px 10px 17px 5px rgba(0,0,0,0.75);
+  flex-wrap: wrap;
+}
+
+.chatbox1{
+  width: 60vw;
+}
+.chatbox2{
+  width: 30vw;
+}
+
+.chath1 {
+  font-size: 30px;
+  color: black;
+  font-family: 'Roboto';
+  font-weight: 100;
+  flex-wrap: wrap;
+  margin-bottom: 1vh;
+}
+.chatdiv {
+  background-color: #f6f6f6;
+  height: 75vh;
+  width: 60vw;
+  border-radius: 10px;
+  font-weight: 100;
+  
+}
