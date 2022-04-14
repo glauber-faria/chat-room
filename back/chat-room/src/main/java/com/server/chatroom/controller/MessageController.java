@@ -17,6 +17,7 @@ import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 @Controller
@@ -26,22 +27,26 @@ public class MessageController {
     @Autowired
     private SimpMessageSendingOperations message;
 
+    @CrossOrigin
     @MessageMapping("/join")
     @SendTo("/topic/response")
     public Content join (@Payload User user, SimpMessageHeaderAccessor accessor){
+        System.out.println(user.toString());
         CONTENT.getUsers().add(user);
         CONTENT.getActivity().add(new Activity(user, ActivityType.JOIN));
         accessor.getSessionAttributes().put("user", user);
         return CONTENT;
     }
 
-    @MessageMapping("/colaborate ")
+    @CrossOrigin
+    @MessageMapping("/colaborate")
     @SendTo("/topic/response")
-    public Content join (@Payload Colaborate colaborate, SimpMessageHeaderAccessor accessor){
+    public Content colaborate (@Payload Colaborate colaborate, SimpMessageHeaderAccessor accessor){
         CONTENT.setContent(colaborate.getContent());
         return CONTENT;
     }
 
+    @CrossOrigin
     @EventListener
     public void socketDisconnect(SessionDisconnectEvent event){
         StompHeaderAccessor wrap = StompHeaderAccessor.wrap(event.getMessage());

@@ -1,25 +1,44 @@
 import { Card, TextareaAutosize } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import "./chat.style.css"
 const Chat = () => {
-  const [content] = useState("ajsdhkajshdkajsdhakjsdhakshdkajshdkajshd");
-  const [log] = useState();
+  const { state } = useLocation();
+  const [{ activity }, setActivity] = useState(state);
+  const [{ content }, setContent] = useState(state);
+  const [{ users }, setUsers] = useState(state);
+
+  useEffect((() => {
+    console.log(activity);
+  }), []);
+
   return (
     <Box className="chatcontainer">
       <Card variant="outlined" className={["chatbox", "chatbox1"]}>
         <h1 className="chath1">Mensagens</h1>
         <TextareaAutosize
-          placeholder="Maximum 4 rows"
-          defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-      ut labore et dolore magna aliqua."
-          style={{ width: '60vw', height: '50vh'}}
+          style={{ width: '60vw', height: '50vh' }}
           className="chatdiv"
+          value={content}
         />
-        {/* <div className="chatdiv">{content}</div> */}
+        {/* <div className="chatdiv">{x}</div> */}
       </Card>
       <Card variant="outlined" className={["chatbox", "chatbox2"]}>
         <h1 className="chath1">Log</h1>
+        <div>
+          {
+            activity.map((item) => {
+              return (
+                <div>
+                  {(new Date(item.data)).toLocaleDateString()} às {(new Date(item.data)).toLocaleTimeString()} 
+                  - {item.user.username} - <b>{item.type}</b>
+                  <br />
+                </div>
+              )
+            })
+          }
+        </div>
       </Card>
     </Box>
   );
